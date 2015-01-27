@@ -20,14 +20,28 @@ post("/") do
 end
 
 
-get("/product_edit/:id") do
+get("/product/:id") do
   @product = Product.find(params.fetch("id").to_i())
-  erb(:product_edit)
+  erb(:product)
 end
 
-delete("/product_edit/:id") do
+delete("/product/:id") do
   @product = Product.find(params.fetch("id").to_i())
   @product.delete()
+  redirect("/")
+end
+
+get("/product/:id/edit") do
+  @product = Product.find(params.fetch("id").to_i())
+  erb(:product)
+  redirect("/")
+end
+
+patch("/product/:id/edit") do
+  name = params.fetch("name")
+  price = params.fetch("price").to_f()
+  @product = Product.find(params.fetch("id").to_i())
+  @product.update({:name => name, :price => price})
   @products = Product.all()
   erb(:index)
 end

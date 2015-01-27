@@ -18,7 +18,8 @@
    <% if @products.any?() %>
    <ul>
      <% @products.each do |product| %>
-        <li><a href="/product_edit/<%= product.id() %>"><%= product.name() %> : $<%= product.price() %> </li>
+        <li><a href="/product/<%= product.id() %>">
+          <%= product.name() %> : $<%= product.price() %> </li>
         <% end %>
         <% else %>
         <li> Frank has no products available </li>

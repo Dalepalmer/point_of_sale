@@ -1,6 +1,6 @@
 <h1>Update information for <%=@product.name() %></h1>
 
-<form action="/product_edit/<%= @product.id() %>" method="post">
+<form action="/product/<%= @product.id() %>/edit" method="post">
   <input name="_method" type="hidden" value="patch">
 
   <label for="name">Rename the product:</label>
@@ -13,9 +13,10 @@
 
 <br>
 <br>
-<form action="/product_edit" method="post">
+<form action="/product/<%= @product.id() %>" method="post">
   <input name="_method" type="hidden" value="delete">
   <div class="span7 text-center">
-    <button class= 'button btn-danger' type="submit">Delete A Product <%=@product.name() %> from the inventory.</button>
+    <button class= 'button btn-danger' type="submit">
+      Delete A Product <%= @product.name() %> from the inventory.</button>
   </div>
 </form>
