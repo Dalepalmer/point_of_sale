@@ -1,0 +1,26 @@
+<h1> Frank's Market POS system </h1>
+
+<form action="/" method="post">
+  <label for="name">Please add a name for this product:</label>
+  <input id="name" name="name" type="text">
+<br>
+
+
+  <label for="price">Please add a price for this product:</label>
+  <input id="price" name="price" type="float">
+
+  <button class='button' type="submit">Add Product</button>
+</form>
+
+
+ <h4> Frank's market list of available products: </h4>
+
+   <% if @products.any?() %>
+   <ul>
+     <% @products.each do |product| %>
+        <li><a href="/product_edit/<%= product.id() %>"><%= product.name() %> : $<%= product.price() %> </li>
+        <% end %>
+        <% else %>
+        <li> Frank has no products available </li>
+   <% end %>
+ </ul>
