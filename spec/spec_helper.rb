@@ -1,0 +1,7 @@
+require('rspec')
+require('sinatra')
+require('sinatra/activerecord')
+require('sinatra-contrib')
+require('pg')
+require('product')
+require('purchase')
