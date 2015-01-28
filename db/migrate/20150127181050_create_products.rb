@@ -4,5 +4,6 @@ class CreateProducts < ActiveRecord::Migration
       t.column(:name, :string)
       t.column(:price, :float)
     end
+    add_column(:purchase_id, :integer)
   end
 end
